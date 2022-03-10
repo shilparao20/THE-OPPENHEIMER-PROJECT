@@ -4,6 +4,8 @@ Documentation     As the Clerk, I should be able to upload a csv file to a porta
 ...
 ...               Keywords are imported from the resource file
 Resource          keywords.robot
+Suite Setup       Open Browser To launch app
+Suite Teardown    Close Browser session
 
 *** Test Cases ***
 AC1:Verify first row of csv contains mandatory headers

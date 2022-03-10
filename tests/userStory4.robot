@@ -5,6 +5,8 @@ Documentation     As the Bookkeeper, I should be able to query the amount of tax
 ...
 ...               Keywords are imported from the resource file
 Library           String
+Suite Setup       Open Browser To launch app
+Suite Teardown    Close Browser session
 Resource          keywords.robot
 
 *** Test Cases ***

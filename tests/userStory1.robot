@@ -3,8 +3,8 @@ Documentation     As the Clerk, I should be able to insert a single record of wo
 ...
 ...               Keywords are imported from the resource file
 Resource          keywords.robot
-#Suite Setup       Open Browser To launch app
-#Suite Teardown    Close Browser session
+Suite Setup       Open Browser To launch app
+Suite Teardown    Close Browser session
 
 *** Test Cases ***
 AC1:Validate inserting single record using API
