@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.9.10 on darwin)" generated="20220310 16:50:53.112" rpa="false" schemaversion="2">
+<suite id="s1" name="UserStory1" source="/Users/sumanth/Downloads/GovTech_Assignment/oppenheimer-project-dev/Oppenheimer_Project/tests/userStory1.robot">
+<test id="s1-t1" name="AC1:Validate inserting single record using API">
+<kw name="Insert a working class hero record via API" library="keywords">
+<doc>Calls the function to read JSON file and returns request body
+Execute the POST request to insert single record
+Verify the status code returned</doc>
+<kw name="Read JSON File and return request body" library="keywords">
+<var>${req_body}</var>
+<arg>${INPUT_FILES_PATH}/userStory1.json</arg>
+<doc>Takes a file as input
+Read the file content and converts to JSON</doc>
+<kw name="Get File" library="OperatingSystem">
+<var>${json}</var>
+<arg>${INPUT_FILE}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20220310 16:50:53.504" level="INFO" html="true">Getting file '&lt;a href="file:///Users/sumanth/Downloads/GovTech_Assignment/oppenheimer-project-dev/Oppenheimer_Project/inputs/userStory1.json"&gt;/Users/sumanth/Downloads/GovTech_Assignment/oppenheimer-project-dev/Oppenheimer_Project/inputs/userStory1.json&lt;/a&gt;'.</msg>
+<msg timestamp="20220310 16:50:53.505" level="INFO">${json} = {
+    "birthday": "08121991", 
+    "gender": "F", 
+    "name": "Madhu", 
+    "natid": "S1325901H", 
+    "salary": "9000", 
+    "tax": "850"
+}</msg>
+<status status="PASS" starttime="20220310 16:50:53.504" endtime="20220310 16:50:53.505"/>
+</kw>
+<kw name="Convert String to JSON" library="keywords">
+<var>${req_body}</var>
+<arg>${json}</arg>
+<doc>This keyword is used to convert any string to JSON</doc>
+<kw name="Evaluate" library="BuiltIn">
+<var>${headers}</var>
+<arg>json.loads("""${object}""")</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220310 16:50:53.506" level="INFO">${headers} = {'birthday': '08121991', 'gender': 'F', 'name': 'Madhu', 'natid': 'S1325901H', 'salary': '9000', 'tax': '850'}</msg>
+<status status="PASS" starttime="20220310 16:50:53.506" endtime="20220310 16:50:53.506"/>
+</kw>
+<msg timestamp="20220310 16:50:53.507" level="INFO">${req_body} = {'birthday': '08121991', 'gender': 'F', 'name': 'Madhu', 'natid': 'S1325901H', 'salary': '9000', 'tax': '850'}</msg>
+<status status="PASS" starttime="20220310 16:50:53.505" endtime="20220310 16:50:53.507"/>
+</kw>
+<msg timestamp="20220310 16:50:53.507" level="INFO">${req_body} = {'birthday': '08121991', 'gender': 'F', 'name': 'Madhu', 'natid': 'S1325901H', 'salary': '9000', 'tax': '850'}</msg>
+<status status="PASS" starttime="20220310 16:50:53.503" endtime="20220310 16:50:53.507"/>
+</kw>
+<kw name="Convert String to JSON" library="keywords">
+<var>${headers}</var>
+<arg>${HEADERS}</arg>
+<doc>This keyword is used to convert any string to JSON</doc>
+<kw name="Evaluate" library="BuiltIn">
+<var>${headers}</var>
+<arg>json.loads("""${object}""")</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220310 16:50:53.508" level="INFO">${headers} = {'Content-Type': 'application/json', 'accept': '*/*'}</msg>
+<status status="PASS" starttime="20220310 16:50:53.508" endtime="20220310 16:50:53.508"/>
+</kw>
+<msg timestamp="20220310 16:50:53.508" level="INFO">${headers} = {'Content-Type': 'application/json', 'accept': '*/*'}</msg>
+<status status="PASS" starttime="20220310 16:50:53.507" endtime="20220310 16:50:53.508"/>
+</kw>
+<kw name="POST" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${BASE_URL}/calculator/insert</arg>
+<arg>json=${req_body}</arg>
+<arg>headers=${headers}</arg>
+<arg>expected_status=202</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20220310 16:50:53.533" level="INFO">POST Request : url=http://localhost:8080/calculator/insert 
+ path_url=/calculator/insert 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '110'} 
+ body=b'{"birthday": "08121991", "gender": "F", "name": "Madhu", "natid": "S1325901H", "salary": "9000", "tax": "850"}' 
+ </msg>
+<msg timestamp="20220310 16:50:53.533" level="INFO">POST Response : url=http://localhost:8080/calculator/insert 
+ status=202, reason= 
+ headers={'Content-Type': 'text/plain;charset=UTF-8', 'Content-Length': '7', 'Date': 'Thu, 10 Mar 2022 08:50:53 GMT'} 
+ body=Alright 
+ </msg>
+<msg timestamp="20220310 16:50:53.534" level="INFO">${response} = &lt;Response [202]&gt;</msg>
+<status status="PASS" starttime="20220310 16:50:53.508" endtime="20220310 16:50:53.534"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>202</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20220310 16:50:53.534" endtime="20220310 16:50:53.534"/>
+</kw>
+<status status="PASS" starttime="20220310 16:50:53.503" endtime="20220310 16:50:53.534"/>
+</kw>
+<doc>Single record of a working class hero should consist of Natural Id (natid), Name, Gender, Birthday, Salary and Tax paid</doc>
+<tag>Functional Test</tag>
+<status status="PASS" starttime="20220310 16:50:53.502" endtime="20220310 16:50:53.535"/>
+</test>
+<doc>As the Clerk, I should be able to insert a single record of working class hero into database via an API.
+
+Keywords are imported from the resource file</doc>
+<status status="PASS" starttime="20220310 16:50:53.114" endtime="20220310 16:50:53.535"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Functional Test</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="UserStory1">UserStory1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

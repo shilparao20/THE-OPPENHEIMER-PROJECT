@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.9.10 on darwin)" generated="20220310 16:51:51.864" rpa="false" schemaversion="2">
+<suite id="s1" name="UserStory5" source="/Users/sumanth/Downloads/GovTech_Assignment/oppenheimer-project-dev/Oppenheimer_Project/tests/userStory5.robot">
+<kw name="Open Browser To launch app" library="keywords" type="SETUP">
+<doc>Create a webdriver
+Then navigate to the application URL
+Verify if the title matches the desired login page title</doc>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>${BROWSER}</arg>
+<arg>executable_path=${EXECUTABLE_PATH}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20220310 16:51:52.053" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20220310 16:51:52.052" endtime="20220310 16:51:53.928"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${BASE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220310 16:51:53.928" level="INFO">Opening url 'http://localhost:8080'</msg>
+<status status="PASS" starttime="20220310 16:51:53.928" endtime="20220310 16:51:54.868"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>${LOGIN_PAGE_TITLE}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20220310 16:51:54.879" level="INFO">Page title is 'Technical Challenge for CDS'.</msg>
+<status status="PASS" starttime="20220310 16:51:54.868" endtime="20220310 16:51:54.879"/>
+</kw>
+<status status="PASS" starttime="20220310 16:51:52.052" endtime="20220310 16:51:54.879"/>
+</kw>
+<test id="s1-t1" name="AC1:Validate a red color button exists">
+<kw name="Validate a button exists with red color" library="keywords">
+<doc>Check if a red color button is present on the portal</doc>
+<kw name="Page Should Contain Button" library="SeleniumLibrary">
+<arg>${BUTTON_CSS_LOCATOR}</arg>
+<doc>Verifies button ``locator`` is found from current page.</doc>
+<msg timestamp="20220310 16:51:54.921" level="INFO">Current page contains button 'css:.btn-danger'.</msg>
+<status status="PASS" starttime="20220310 16:51:54.882" endtime="20220310 16:51:54.921"/>
+</kw>
+<kw name="Get WebElement" library="SeleniumLibrary">
+<var>${bg}</var>
+<arg>${BUTTON_CSS_LOCATOR}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<msg timestamp="20220310 16:51:54.926" level="INFO">${bg} = &lt;selenium.webdriver.remote.webelement.WebElement (session="6f1f7ce904f6708cee75d1b0ac941cca", element="48e578d6-5965-4cb2-8c33-309d10449647")&gt;</msg>
+<status status="PASS" starttime="20220310 16:51:54.921" endtime="20220310 16:51:54.926"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<var>${bg_color}</var>
+<arg>${bg}</arg>
+<arg>value_of_css_property</arg>
+<arg>background-color</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20220310 16:51:54.936" level="INFO">${bg_color} = rgba(220, 53, 69, 1)</msg>
+<status status="PASS" starttime="20220310 16:51:54.926" endtime="20220310 16:51:54.936"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${BUTTON_COLOR}</arg>
+<arg>${bg_color}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220310 16:51:54.937" endtime="20220310 16:51:54.937"/>
+</kw>
+<status status="PASS" starttime="20220310 16:51:54.882" endtime="20220310 16:51:54.937"/>
+</kw>
+<doc>The button on the screen must be red-colored</doc>
+<tag>Functional Test</tag>
+<status status="PASS" starttime="20220310 16:51:54.880" endtime="20220310 16:51:54.937"/>
+</test>
+<test id="s1-t2" name="AC2:Validate the red button text">
+<kw name="Validate the button text" library="keywords">
+<doc>Verify the button text</doc>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${BUTTON_LOCATOR}</arg>
+<arg>${BUTTON_NAME}</arg>
+<arg>ignore_case: bool = True</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220310 16:51:54.939" level="INFO">Verifying element 'xpath=//*[@id="contents"]/a[2]' contains exact text 'Dispense Now'.</msg>
+<status status="PASS" starttime="20220310 16:51:54.939" endtime="20220310 16:51:54.965"/>
+</kw>
+<status status="PASS" starttime="20220310 16:51:54.938" endtime="20220310 16:51:54.965"/>
+</kw>
+<doc>The text on the button must be exactly “Dispense Now”</doc>
+<tag>Functional Test</tag>
+<status status="PASS" starttime="20220310 16:51:54.938" endtime="20220310 16:51:54.965"/>
+</test>
+<test id="s1-t3" name="AC3:Verify on button click the page opens new page with text &quot;Cash dispensed&quot;">
+<kw name="Verify on button click a new page opens and validate the text" library="keywords">
+<doc>Checks on clicking the Dispense button, it opens a new page
+Validate the text present on new page</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${BUTTON_LOCATOR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220310 16:51:54.967" level="INFO">Clicking element 'xpath=//*[@id="contents"]/a[2]'.</msg>
+<status status="PASS" starttime="20220310 16:51:54.966" endtime="20220310 16:51:55.450"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>${DISPENSE_PAGE}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20220310 16:51:55.454" level="INFO">Page title is 'Dispense!!'.</msg>
+<status status="PASS" starttime="20220310 16:51:55.450" endtime="20220310 16:51:55.455"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${DISPENSE_PAGE_TEXT}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220310 16:51:55.467" level="INFO">Current page contains text 'Cash dispensed'.</msg>
+<status status="PASS" starttime="20220310 16:51:55.455" endtime="20220310 16:51:55.467"/>
+</kw>
+<status status="PASS" starttime="20220310 16:51:54.966" endtime="20220310 16:51:55.467"/>
+</kw>
+<doc>After clicking on the button, it should direct me to a page with a text that says “Cash dispensed”</doc>
+<tag>Functional Test</tag>
+<status status="PASS" starttime="20220310 16:51:54.965" endtime="20220310 16:51:55.467"/>
+</test>
+<kw name="Close Browser session" library="keywords" type="TEARDOWN">
+<doc>Used to close the browser</doc>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220310 16:51:55.469" endtime="20220310 16:51:55.548"/>
+</kw>
+<status status="PASS" starttime="20220310 16:51:55.468" endtime="20220310 16:51:55.548"/>
+</kw>
+<doc>As the Governor, I should be able to see a button on the screen so that I can dispense tax relief for my working class heroes.
+
+Keywords are imported from the resource file</doc>
+<status status="PASS" starttime="20220310 16:51:51.866" endtime="20220310 16:51:55.548"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="3" fail="0" skip="0">Functional Test</stat>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="UserStory5">UserStory5</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
