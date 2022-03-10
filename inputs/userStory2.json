@@ -1,0 +1,18 @@
+[
+    {
+      "birthday": "06041994",
+      "gender": "M",
+      "name": "Shashank",
+      "natid": "S1325801H",
+      "salary": "10000",
+      "tax": "750"
+    },
+    {
+        "birthday": "05101985",
+        "gender": "M",
+        "name": "Sumanth",
+        "natid": "S1325701H",
+        "salary": "10000",
+        "tax": "750"
+      }
+  ]
