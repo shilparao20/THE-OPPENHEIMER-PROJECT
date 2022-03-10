@@ -12,7 +12,7 @@
 
 ## Introduction
 
-This Oppenheimer project demonstrates some of the Acceptance Criterias mentioned for the User Stories for "THE OPPENHEIMER PROJECT".
+This Oppenheimer project demonstrates some of the Acceptance Criterias mentioned for the User Stories for **"THE OPPENHEIMER PROJECT"**.
 
 The user stories tested are present in the "NPHC Quality Engineer Assignment v1.3.pdf" file attached to this repository.
 
@@ -30,7 +30,7 @@ Project is created with:
 
 The instructions to run the app are present here:
 
-```http://tiny.cc/oppenheimerprojectdev```
+[http://tiny.cc/oppenheimerprojectdev](http://tiny.cc/oppenheimerprojectdev)
 
 ## Scope of functionalities
 
